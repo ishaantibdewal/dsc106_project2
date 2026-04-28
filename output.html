@@ -1,0 +1,314 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Project 2 Report</title>
+        <style>
+            :root {
+                --color-neutral-95: hsl(220 10% 95%);
+                --color-neutral-90: hsl(220 10% 90%);
+                --color-neutral-80: hsl(220 10% 80%);
+                --color-neutral-70: hsl(220 10% 70%);
+                --color-neutral-60: hsl(220 10% 60%);
+                --color-neutral-50: hsl(220 10% 50%);
+                --color-neutral-40: hsl(220 10% 40%);
+                --color-neutral-30: hsl(220 10% 30%);
+                --color-neutral-20: hsl(220 10% 20%);
+                --color-neutral-10: hsl(220 10% 10%);
+            }
+
+            html {
+                font: 100%/1.5 system-ui;
+                counter-reset: figure;
+                background: var(--color-neutral-95);
+                max-width: min(75vw, 80em);
+                margin: 0 auto;
+            }
+
+            /* Headings */
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                line-height: 1.1;
+                font-weight: 600;
+                text-wrap: balance;
+            }
+
+            h1,
+            h2 {
+                border-bottom: 1px solid var(--color-neutral-80);
+                padding-bottom: 0.2em;
+            }
+
+            h1 {
+                margin-block: 1em 0.5rem;
+                font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+                font-weight: 800;
+
+                small {
+                    display: block;
+                    width: fit-content;
+                    padding: 0.2em 0.5em;
+                    margin-inline: auto;
+                    color: white;
+                    background: var(--color-neutral-40);
+                    font-size: 40%;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                }
+            }
+
+            h2 {
+                font-size: 180%;
+                color: var(--color-neutral-30);
+            }
+
+            h3 {
+                font-size: 130%;
+            }
+
+            /* Lists */
+
+            ul,
+            ol {
+                padding-inline-start: 2em;
+            }
+
+            li {
+                &::marker {
+                    color: var(--color-neutral-40);
+                }
+
+                + li {
+                    margin-top: 0.2em;
+                }
+            }
+
+            /* Sectioning elements */
+
+            header {
+                padding-block: 1em;
+                text-align: center;
+            }
+
+            main {
+                background: white;
+                color: var(--color-neutral-20);
+                border-radius: 1rem;
+                padding: 0.1rem 2rem;
+            }
+
+            /* Figures */
+
+            figure {
+                margin: 1em 0;
+                padding: 0.5rem;
+                margin-inline: -0.5em;
+                border: 1px solid var(--color-neutral-80);
+                box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+                text-align: center;
+                background: white;
+
+                > figcaption {
+                    font: 500 75% var(--font-sans);
+                    background: var(--color-neutral-95);
+                    padding: 0.5rem;
+                    margin: -0.5rem;
+                    margin-top: 0.5rem;
+                    counter-increment: figure;
+                    text-align: left;
+
+                    &::before {
+                        content: "Figure " counter(figure) ": ";
+                        font-weight: bold;
+                        color: var(--color-neutral-40);
+                    }
+
+                    a:not(:hover, :focus, :active) {
+                        color: inherit;
+                        text-decoration: underline;
+                        text-decoration-color: color-mix(
+                            in lab,
+                            currentColor,
+                            transparent 70%
+                        );
+                    }
+                }
+            }
+
+            /* Design decision table */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 1em 0;
+                font-size: 90%;
+            }
+
+            th, td {
+                border: 1px solid var(--color-neutral-80);
+                padding: 0.5em 0.75em;
+                text-align: left;
+                vertical-align: top;
+            }
+
+            th {
+                background: var(--color-neutral-95);
+                font-weight: 600;
+            }
+
+            td:nth-child(2) {
+                text-align: center;
+                font-weight: bold;
+                white-space: nowrap;
+            }
+
+            .score-pos { color: #1B5E20; }
+            .score-neg { color: #B71C1C; }
+            .score-neu { color: var(--color-neutral-50); }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                <small>Project 2</small>
+                Persuasive or Deceptive Visualization?
+            </h1>
+
+            <p>
+    <strong>Ishaan Tibdewal</strong> &bull; <em>itibdewal@ucsd.edu</em> &nbsp;&nbsp;
+    <strong>Micheal Petersen</strong> &bull; <em>m1petersen@ucsd.edu</em> &nbsp;&nbsp;
+    <strong>Mihir Vad</strong> &bull; <em>mvad@ucsd.edu</em> &nbsp;&nbsp;
+    <strong>Diego Inostroza</strong> &bull; <em>dinostroza@ucsd.edu</em>
+</p>
+        </header>
+
+        <main>
+            <h2><span style="font-weight:350;">Proposition:</span> Global fossil fuel subsidies are declining.</h2>
+
+            <!-- ============================================================ -->
+            <section>
+                <h3>FOR the Proposition</h3>
+
+                <figure>
+                    <img src="chart1_us_line.png" alt="Line chart showing fossil fuel subsidies indexed to 2022 for five major economies, all declining through 2025." style="width:100%;" />
+                    <figcaption>
+                        Five major economies (Saudi Arabia, Germany, France, Italy, and Qatar) all show consistent, uninterrupted declines in fossil fuel subsidies from their 2022 peak through 2025 (including IMF projections). Every line ends well below its 2022 baseline, suggesting a broad global retreat from fossil fuel support.
+                    </figcaption>
+                </figure>
+
+                <p><strong>Design Decisions and Rationale:</strong></p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Decision</th>
+                            <th>Score</th>
+                            <th>Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cherry-picked countries with strictly monotonic decline</strong></td>
+                            <td><span class="score-neg">−2</span></td>
+                            <td>Only Saudi Arabia, Germany, France, Italy, and Qatar were selected because they are the only major economies that show an unbroken year-over-year decline from 2022 to 2025. The vast majority of countries either increased subsidies over this period or had non-monotonic trends. Restricting to these five creates the visual impression that decline is widespread and consistent when it is actually the exception. The country names are recognizable and geographically diverse (Middle East, Western Europe), which further implies global breadth.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Starting the time axis at the 2022 global peak</strong></td>
+                            <td><span class="score-neg">−1.5</span></td>
+                            <td>2022 was the global peak for fossil fuel subsidies, driven by the energy price crisis. By anchoring the chart there, every data point afterwards naturally appears lower. Had the chart started in 2015 or 2019, several of these same countries would show net increases, undermining the proposition. The short four-year window (2022–2025) also reduces the chance that non-declining years enter the frame.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indexing values to 2022 = 100</strong></td>
+                            <td><span class="score-neu">0</span></td>
+                            <td>Normalizing each country to a common baseline of 100 is a legitimate technique for comparing relative changes across economies of very different sizes. Without indexing, smaller countries like Qatar would be nearly invisible next to Saudi Arabia. However, this normalization also conceals that these countries still spend hundreds of billions of dollars annually on subsidies in absolute terms, a context that would weaken the "declining" narrative. The decision is both useful and mildly convenient for the proposition.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Incorporating IMF projections (2024–2025) as continuous data</strong></td>
+                            <td><span class="score-neg">−1</span></td>
+                            <td>The 2024 and 2025 data points are IMF model-based projections, not measured actuals. While a light gray shaded band and an "IMF Projections" label do mark this region, the lines flow through the projection zone without any visual break. Casual readers are unlikely to distinguish projections from real data, and the projected portion accounts for half the chart's visible downward slope. A more honest approach would use dashed lines or clearly discontinue them at 2023.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Green title color and action-oriented phrasing</strong></td>
+                            <td><span class="score-neg">−1</span></td>
+                            <td>The title reads "Major Economies Cutting Fossil Fuel Subsidies - Consistent Decline Since 2022 Peak." The word "cutting" implies deliberate policy action, and green is culturally associated with environmental progress. In reality, some of the declines reflect falling energy prices and post-crisis normalization rather than intentional policy reform. This framing primes viewers to interpret the decline as a positive, purposeful trend before they examine the data.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ============================================================ -->
+            <section>
+                <h3>AGAINST the Proposition</h3>
+
+                <figure>
+                    <img src="chart3_top_emitters.png" alt="Horizontal bar chart showing subsidy growth percentages for the top 5 fossil fuel emitters from 2015 to 2022." style="width:100%;" />
+                    <figcaption>
+                        The world's five largest fossil fuel emitters (India, China, Japan, Russia, and the USA) all increased their fossil fuel subsidies between 2015 and 2022. India led with a 93% increase, followed by China at 85%. Even the USA, often cited as a reformer, grew subsidies by 4%. Far from declining, global subsidy support intensified most sharply among the countries that matter most for emissions.
+                    </figcaption>
+                </figure>
+
+                <p><strong>Design Decisions and Rationale:</strong></p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Decision</th>
+                            <th>Score</th>
+                            <th>Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Selecting the top 5 emitters as the frame</strong></td>
+                            <td><span class="score-neg">−0.5</span></td>
+                            <td>Framing the chart around the "top 5 emitters" is rhetorically powerful: it implies these are the countries that matter most for the climate, so if they are increasing subsidies, the global trajectory cannot be improving. This is a reasonable framing since these countries account for the majority of global emissions. However, it is also convenient because these specific countries happen to show the largest absolute subsidy growth. A randomly sampled group of five countries might tell a more mixed story.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Choosing 2015–2022 as the comparison window</strong></td>
+                            <td><span class="score-neg">−1</span></td>
+                            <td>The window 2015–2022 was selected because it captures the full run-up to the global energy crisis peak, maximizing apparent growth. Ending at 2023 would reduce growth rates for several countries (e.g., Japan and Korea declined from their 2022 peaks). Using 2022 as the endpoint frames the story at the worst possible moment for the "declining" argument, without explicitly calling attention to the fact that 2022 was an anomalous spike year.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Absolute dollar values displayed inside bars</strong></td>
+                            <td><span class="score-pos">+1</span></td>
+                            <td>Embedding the raw dollar figures (e.g., "$180B → $346B" for India) inside each bar provides honest quantitative context that percentage growth alone would obscure. This makes it easy for readers to understand the true scale of subsidies, and it prevents the chart from being purely a relative-change visualization. The USA's bar is too small to hold the text, so only the percentage is shown, an honest concession to readability rather than a deceptive omission.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Red color gradient scaled to growth intensity</strong></td>
+                            <td><span class="score-neg">−1</span></td>
+                            <td>Bars are colored from light salmon (low growth, USA) to deep crimson (high growth, India/China), using a gradient that culturally associates intensity with danger. This nudges readers to perceive subsidy growth as alarming before they read the numbers. A neutral color palette (e.g., blue or gray) would present the same data without emotional priming. The choice is deliberate: red reinforces the "crisis" framing of the opposing proposition.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sorting bars by growth rate, placing USA last</strong></td>
+                            <td><span class="score-neg">−0.5</span></td>
+                            <td>Ordering bars from highest to lowest growth rate (India → China → Japan → Russia → USA) ensures the most alarming figures dominate the top of the chart, which readers scan first. Placing the USA at the bottom downplays that even the country most often cited as a reform leader still increased subsidies by 4%. An alternative ordering by absolute subsidy level would highlight China and Russia's sheer scale, which could have been even more striking. This ordering was chosen to maximize perceived momentum of global growth.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ============================================================ -->
+            <section>
+                <h2>Final Reflection</h2>
+
+                <p>
+                    The central challenge of this assignment was discovering just how much the same dataset could be made to argue opposite things without ever fabricating a number. Every value in both charts is accurate; yet they reach diametrically opposed conclusions. The "FOR" chart looks at five handpicked countries over a four-year window beginning at the all-time peak, and every line goes down. The "AGAINST" chart looks at the five largest emitters over seven years ending at the all-time peak, and every bar goes up. Neither chart lies; both mislead. That realization (that deception and accuracy are not opposites) was the most striking thing to emerge from the process. We expected deceptive visualization to require distorted axes or fabricated data. Instead, the most effective techniques were choices about framing: which countries, which years, and which baseline to normalize against.
+                </p>
+
+                <p>
+                    What proved harder than expected was finding countries that genuinely and consistently showed declining subsidies. The overwhelming reality in the dataset is that global subsidies have grown, not just in absolute terms but also as a share of GDP in most nations. Sustaining the "FOR" case required progressively narrowing the selection criteria: from all countries, to countries with declines over any period, to countries with strictly monotonic year-over-year declines from the 2022 peak. By the time we found five such countries, we had effectively constructed the most flattering possible scenario: five economies in a post-energy-crisis normalization phase, two of which rely on IMF projections to complete the downward slope. In contrast, the "AGAINST" chart almost built itself: the five largest emitters showed large, unambiguous growth without any selection gymnastics. This asymmetry in how hard each side was to construct is itself evidence about which side better reflects reality.
+                </p>
+
+                <p>
+                    This process has reshaped how we think about ethical visualization. Ethical analysis is not just about avoiding outright falsehoods; it requires active transparency about the choices that shaped what the viewer sees. A visualization is deceptive not only when it truncates an axis or fabricates a label, but also when it quietly omits contradictory evidence, chooses a convenient baseline without disclosing it, or uses projections without distinguishing them from observations. The line we would draw between "acceptable persuasion" and "misleading" comes down to reversibility of inference: can a careful reader reconstruct what was left out? A chart that shows indexed values but labels the baseline year and cites the source gives readers tools to interrogate it. A chart that flows projections seamlessly into actuals, or titles itself "Consistent Decline" without acknowledging the cherry-picked window, removes those tools. The first is persuasive; the second is deceptive, even if every plotted number is technically correct.
+                </p>
+            </section>
+        </main>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"c822b88e119346678db149ed7b7721c9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
